@@ -1,0 +1,85 @@
+<div class="tab-pane" role="tabpanel">
+  <div class="card border-primary">
+    <div class="card-header bg-primary  text-light text-center">
+      <h3><strong>DataTable Server Side (Angular way)</strong></h3>
+      <hr class="border-light" />
+      <div class="text-center">
+        <a routerLink="/createEmployeeReactive" class="btn btn-success btn-sm">Create Employee (R)</a>
+      </div>
+    </div>
+    <div class="card-body">
+      <div *ngIf="!employeeList">
+        {{statusMessage}}
+      </div>
+      <div style="overflow: auto">
+      <table id="myDataTable" datatable [dtOptions]="dtOptions" class="table table-bordered table-sm table-hover" width="100%">
+        <thead>
+          <tr>
+            <th>SL</th>
+            <th><input type="text" placeholder="Search Employee Id" name="employeeId" /></th>
+            <th><input type="text" placeholder="Search Name" name="search-first-name" /></th>
+            <th><input type="text" placeholder="Search Gender" name="search-first-name" /></th>
+            <th><input type="text" placeholder="Search Annual Salary" name="search-first-name" /></th>
+            <th><input type="text" placeholder="Search Date of Birth" name="search-first-name" /></th>
+            <th class="text-center">
+              <div style="display: inline-block; width: 200px">
+                Action
+              </div>
+            </th>
+          </tr>
+          <tr>
+            <th>SL</th>
+            <th>EmployeeId</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Annual Salary</th>
+            <th>Date of Birth</th>
+            <th class="text-center">
+              <div style="display: inline-block; width: 200px">
+                Action
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employeeList; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{employee.employeeId}}</td>
+            <td>{{employee.employeeName | employeeTitle:employee.gender}}</td>
+            <td>{{employee.gender}}</td>
+            <td>{{employee.annualSalary | currency:'USD':'symbol'}}</td>
+            <td>{{employee.dateOfBirth}}</td>
+            <th>
+              <a [routerLink]="['/employeeDetails/', employee.employeeId]" class="btn btn-info btn-sm">Details</a>
+              <a [routerLink]="['/updateEmployeeReactive/', employee.employeeId]" class="btn btn-primary btn-sm">Edit (R)</a>
+              <a [routerLink]="['/deleteEmployee/',employee.employeeId]" class="btn btn-danger btn-sm">Delete</a>
+            </th>
+          </tr>
+          <tr *ngIf="!employeeList">
+            <td class="text-center" colspan="7">Data is loading..Please wait..</td>
+          </tr>
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <th>SL</th>
+            <th>EmployeeId</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Annual Salary</th>
+            <th>Date of Birth</th>
+            <th class="text-center">
+              <div style="display: inline-block; width: 200px">
+                Action
+              </div>
+            </th>
+          </tr>
+        </tfoot>
+
+      </table>
+      </div>
+
+    </div>
+  </div>
+
+</div>

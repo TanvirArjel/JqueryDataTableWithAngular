@@ -1,0 +1,63 @@
+<div class="tab-pane" role="tabpanel">
+  <div class="card border-primary">
+    <div class="card-header bg-primary  text-light text-center">
+      <h3><strong>DataTable Server Side (Jquery way)</strong></h3>
+      <hr class="border-light" />
+      <div class="text-center">
+        <a routerLink="/createEmployeeReactive" class="btn btn-success btn-sm">Create Employee (R)</a>
+      </div>
+    </div>
+    <div class="card-body">
+      <div *ngIf="!employeeList">
+        {{statusMessage}}
+      </div>
+        <table id="myDataTable" class="table table-bordered table-sm table-hover" width="100%">
+          <thead>
+            <tr>
+              <th>SL</th>
+              <th>EmployeeId</th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Annual Salary</th>
+              <th>Date of Birth</th>
+              <th class="text-center">
+                <div style="display: inline-block; width: 200px">
+                  Action
+                </div>
+              </th>
+            </tr>
+            <tr>
+              <th>SL</th>
+              <th>EmployeeId</th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Annual Salary</th>
+              <th>Date of Birth</th>
+              <th class="text-center">
+                <div style="display: inline-block; width: 200px">
+                  Action
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>SL</th>
+              <th>EmployeeId</th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Annual Salary</th>
+              <th>Date of Birth</th>
+              <th class="text-center">
+                <div style="display: inline-block; width: 200px">
+                  Action
+                </div>
+              </th>
+            </tr>
+          </tfoot>
+
+        </table>
+      </div>
+
+    </div>
+  </div>

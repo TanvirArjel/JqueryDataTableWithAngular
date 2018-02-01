@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*
+   server-side-angular-way.component.css
+*/
+.no-data-available {
+  text-align: center;
+}
+
+/*
+   src/styles.css (i.e. your global style)
+*/
+.dataTables_empty {
+  display: none;
+}
+
+
+thead input {
+  min-width: 150px;
+  width: 100%;
+}
+
+thead > tr > th {
+  padding-right: 5px !important;
+}
+
+tbody > tr > td:last-child {
+  text-align: center !important;
+}
+
+/*div.dataTables_scrollBody thead {           
+  display: none;
+}*/

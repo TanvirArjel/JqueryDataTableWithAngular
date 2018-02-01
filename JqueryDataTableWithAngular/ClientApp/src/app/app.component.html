@@ -1,0 +1,28 @@
+<div class='container-fluid'>
+  <div class="card">
+    <div class="card-body">
+      <div class="nav nav-tabs" style="margin-bottom: 1rem" role="tablist">
+        <li class="nav-item">
+          <a routerLinkActive="active" class="nav-link" [routerLink]='["/"]' [routerLinkActiveOptions]="{exact:true}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a routerLinkActive="active" class="nav-link" [routerLink]='["/datatable-client-side-jquery-way"]'>DataTable Client Side (jQuery Way)</a>
+        </li>
+        <li class="nav-item">
+          <a routerLinkActive="active" class="nav-link" [routerLink]='["/datatable-server-side-jquery-way"]'>DataTable Server Side (jQuery Way)</a>
+        </li>
+
+        <li class="nav-item">
+          <a routerLinkActive="active" class="nav-link" [routerLink]='["/datatable-client-side-angular-way"]'>DataTable Client Side (Angular Way)</a>
+        </li>
+        <li class="nav-item">
+          <a routerLinkActive="active" class="nav-link" [routerLink]='["/datatable-server-side-angular-way"]'>DataTable Server Side (Angular Way)</a>
+        </li>
+      </div>
+      <div class="tab-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  
+</div>
