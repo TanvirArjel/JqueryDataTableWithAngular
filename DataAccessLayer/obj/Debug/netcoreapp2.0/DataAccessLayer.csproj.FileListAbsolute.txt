@@ -1,0 +1,11 @@
+D:\GitHub\JqueryDataTableWithAngular\DataAccessLayer\bin\Debug\netcoreapp2.0\DataAccessLayer.deps.json
+D:\GitHub\JqueryDataTableWithAngular\DataAccessLayer\bin\Debug\netcoreapp2.0\DataAccessLayer.dll
+D:\GitHub\JqueryDataTableWithAngular\DataAccessLayer\bin\Debug\netcoreapp2.0\DataAccessLayer.pdb
+D:\GitHub\JqueryDataTableWithAngular\DataAccessLayer\bin\Debug\netcoreapp2.0\Microsoft.EntityFrameworkCore.dll
+D:\GitHub\JqueryDataTableWithAngular\DataAccessLayer\bin\Debug\netcoreapp2.0\Microsoft.EntityFrameworkCore.xml
+D:\GitHub\JqueryDataTableWithAngular\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.csprojResolveAssemblyReference.cache
+D:\GitHub\JqueryDataTableWithAngular\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.csproj.CoreCompileInputs.cache
+D:\GitHub\JqueryDataTableWithAngular\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.AssemblyInfoInputs.cache
+D:\GitHub\JqueryDataTableWithAngular\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.AssemblyInfo.cs
+D:\GitHub\JqueryDataTableWithAngular\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.dll
+D:\GitHub\JqueryDataTableWithAngular\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.pdb

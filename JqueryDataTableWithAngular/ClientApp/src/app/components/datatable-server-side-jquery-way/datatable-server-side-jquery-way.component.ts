@@ -25,6 +25,39 @@ export class DataTableServerSideJqueryWayComponent implements OnInit {
         "fixedColumns": {
           rightColumns: 1
         },
+        "lengthChange": false,
+        //dom: 'Bfrtip',
+        buttons: [
+          {
+            extend: 'pageLength'
+
+          },
+          {
+            extend: 'excel',
+            "text": 'Export to Excel></i>',
+            "className": 'btn btn-success',
+            exportOptions: {
+              columns: 'th:not(:last-child)'
+            }
+          },
+          {
+            extend: 'copy',
+            "className": 'btn btn-info',
+            exportOptions: {
+              columns: ':visible'
+            }
+          },
+
+          {
+            extend: 'print',
+            "className": 'btn btn-primary',
+            exportOptions: {
+              columns: ':visible'
+            }
+          },
+          
+          'colvis'
+        ],
         order: [[1, 'asc']],
         "ajax": {
           "url": "http://localhost:22513/api/Employee/GetEmployeeList",
@@ -55,6 +88,10 @@ export class DataTableServerSideJqueryWayComponent implements OnInit {
             }
           }
         ],
+        "initComplete": function () {
+          table.buttons().container()
+            .appendTo($('#myDataTable_wrapper .col-md-6:eq(0)'));
+        },
         "language": {
           "emptyTable": "There are no customers at present.",
           "zeroRecords": "There were no matching customers found."

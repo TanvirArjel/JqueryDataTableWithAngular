@@ -27,7 +27,17 @@ thead > tr > th {
 tbody > tr > td:last-child {
   text-align: center !important;
 }
+.btn {
+  border-radius: 0 !important;
+}
 
-/*div.dataTables_scrollBody thead {           
-  display: none;
-}*/
+.dropdown-menu {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.dropdown-item.active, .dropdown-item:active {
+  border-bottom: 1px solid #000;
+  color: #000000 !important;
+  text-decoration: none;
+  background-color: #007bff;
+}

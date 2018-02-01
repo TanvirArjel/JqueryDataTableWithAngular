@@ -1,0 +1,9 @@
+D:\GitHub\JqueryDataTableWithAngular\CommonCodes\bin\Debug\netcoreapp2.0\CommonCodes.deps.json
+D:\GitHub\JqueryDataTableWithAngular\CommonCodes\bin\Debug\netcoreapp2.0\CommonCodes.dll
+D:\GitHub\JqueryDataTableWithAngular\CommonCodes\bin\Debug\netcoreapp2.0\CommonCodes.pdb
+D:\GitHub\JqueryDataTableWithAngular\CommonCodes\obj\Debug\netcoreapp2.0\CommonCodes.csprojResolveAssemblyReference.cache
+D:\GitHub\JqueryDataTableWithAngular\CommonCodes\obj\Debug\netcoreapp2.0\CommonCodes.csproj.CoreCompileInputs.cache
+D:\GitHub\JqueryDataTableWithAngular\CommonCodes\obj\Debug\netcoreapp2.0\CommonCodes.AssemblyInfoInputs.cache
+D:\GitHub\JqueryDataTableWithAngular\CommonCodes\obj\Debug\netcoreapp2.0\CommonCodes.AssemblyInfo.cs
+D:\GitHub\JqueryDataTableWithAngular\CommonCodes\obj\Debug\netcoreapp2.0\CommonCodes.dll
+D:\GitHub\JqueryDataTableWithAngular\CommonCodes\obj\Debug\netcoreapp2.0\CommonCodes.pdb

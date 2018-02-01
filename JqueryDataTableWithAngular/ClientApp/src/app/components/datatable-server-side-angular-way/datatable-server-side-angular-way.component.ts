@@ -20,7 +20,7 @@ export class DatatableServerSideAngularWayComponent implements OnInit {
   @ViewChild(DataTableDirective)
   datatableElement: DataTableDirective;
 
-  dtOptions: DataTables.Settings = {};
+  dtOptions: any = {};
   employeeList: Employee[];
   siteUrl: string = 'http://localhost:22513/api/Employee/GetEmployeeList';
 
