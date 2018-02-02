@@ -1,10 +1,11 @@
-<div class="card border-info">
-  <div class="card-header bg-info  text-light text-center">
-    <h3><strong>DataTable Client Side (jQuery Way)</strong></h3>
+<div class="card border-secondary">
+  <div class="card-header bg-secondary  text-light text-center">
+    <h3><strong>DataTable Client Side(Jquery Way)</strong></h3>
     <hr class="border-light" />
-    <div class="text-center">
+    <div class="pull-left">
       <a routerLink="/createEmployeeTemplate" class="btn btn-success btn-sm">Create Employee (T)</a>
     </div>
+    
   </div>
 
   <div class="card-body">
@@ -12,7 +13,7 @@
       {{statusMessage}}
     </div>
     <div *ngIf="employees">
-      <table id="dataTable" class="table table-bordered table-sm" width="100%">
+      <table id="dataTable" class="table table-sm table-bordered table-hover" width="100%">
         <thead>
           <tr>
             <th>SL</th>
@@ -20,12 +21,7 @@
             <th>Gender</th>
             <th>Annual Salary</th>
             <th>Date of Birth</th>
-            <th>Comment</th>
-            <th class="text-center">
-              <div style="display: inline-block; width: 250px">
-                Action
-              </div>
-            </th>
+            <th class="text-center" style="min-width: 230px">Action</th>
           </tr>
           <tr>
             <th>SL</th>
@@ -33,12 +29,7 @@
             <th>Gender</th>
             <th>Annual Salary</th>
             <th>Date of Birth</th>
-            <th>Comment</th>
-            <th class="text-center">
-              <div style="display: inline-block; width: 250px">
-                Action
-              </div>
-            </th>
+            <th class="text-center">Action</th>
           </tr>
         </thead>
         <tfoot>
@@ -49,26 +40,19 @@
             <th>Gender</th>
             <th>Annual Salary</th>
             <th>Date of Birth</th>
-            <th>Comment</th>
-            <th class="text-center">
-              <div style="display: inline-block; width: 250px">
-                Action
-              </div>
-            </th>
+            <th class="text-center">Action</th>
           </tr>
         </tfoot>
         <tbody>
-          <tr *ngFor="let employee of employees; trackBy:trackByEmployeeCode; let i = index">
-            <td>{{i+1}}</td>
-            <!--<td>
+          <tr *ngFor="let employee of employees; let i = index">
+            <td>
                 {{employee.employeeId}}
-            </td>-->
+            </td>
             <td>{{employee.employeeName | employeeTitle:employee.gender}}</td>
             <td>{{employee.gender}}</td>
             <td>{{employee.annualSalary | currency:'USD':'symbol'}}</td>
             <td>{{employee.dateOfBirth}}</td>
-            <td>{{employee.annualSalary > 6000 ? 'Senior Employee': 'Mid Level Employee'}}</td>
-            <th>
+            <th class="text-center">
               <a [routerLink]="['/employeeDetails/', employee.employeeId]" class="btn btn-info btn-sm">Details</a>
               <a [routerLink]="['/updateEmployeeTemplate/', employee.employeeId]" class="btn btn-primary btn-sm">Edit (T)</a>
               <a [routerLink]="['/deleteEmployee/',employee.employeeId]" class="btn btn-danger btn-sm">Delete</a>

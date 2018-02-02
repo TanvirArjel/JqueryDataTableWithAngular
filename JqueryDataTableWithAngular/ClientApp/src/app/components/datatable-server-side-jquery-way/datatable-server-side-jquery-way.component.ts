@@ -9,7 +9,7 @@ export class DataTableServerSideJqueryWayComponent implements OnInit {
   constructor() { }
   ngOnInit() {
 
-    jQuery(function () {
+    jQuery(() => {
 
       // Setup - add a text input to each header cell
       jQuery('#myDataTable thead tr:eq(0) th:not(:last,:first)').each(function () {
@@ -23,6 +23,7 @@ export class DataTableServerSideJqueryWayComponent implements OnInit {
         "scrollX": true,
         "lengthMenu": [[4, 8, 10, 15], [4, 8, 10, 15]],
         "fixedColumns": {
+          leftColumns: 1,
           rightColumns: 1
         },
         "lengthChange": false,
@@ -34,7 +35,7 @@ export class DataTableServerSideJqueryWayComponent implements OnInit {
           },
           {
             extend: 'excel',
-            "text": 'Export to Excel></i>',
+            "text": 'Export to Excel',
             "className": 'btn btn-success',
             exportOptions: {
               columns: 'th:not(:last-child)'
@@ -52,7 +53,7 @@ export class DataTableServerSideJqueryWayComponent implements OnInit {
             extend: 'print',
             "className": 'btn btn-primary',
             exportOptions: {
-              columns: ':visible'
+              columns: 'th:not(:last-child)'
             }
           },
           
@@ -60,19 +61,15 @@ export class DataTableServerSideJqueryWayComponent implements OnInit {
         ],
         order: [[1, 'asc']],
         "ajax": {
-          "url": "http://localhost:22513/api/Employee/GetEmployeeList",
+          "url": "http://localhost:22513/api/Employee/GetEmployeeListForDataTable",
           contentType: 'application/json',
           "method": "POST",
-          "data": function (d) {
-            return JSON.stringify(d);
-          }
+          "data": d => JSON.stringify(d)
         },
         "columns": [
           {
             data: 'employeeId', name: 'employeeId', orderable: false, searchable: false,
-            render: function (data, type, row, meta) {
-              return meta.settings._iDisplayStart + meta.row + 1;
-            }
+            render: (data, type, row, meta) => meta.settings._iDisplayStart + meta.row + 1
           },
           { data: 'employeeId', name: 'employeeId' },
           { data: 'employeeName', name: 'employeeName' },
@@ -81,21 +78,19 @@ export class DataTableServerSideJqueryWayComponent implements OnInit {
           { data: 'dateOfBirth', name: 'dateOfBirth' },
           {
             data: 'employeeId', name: 'employeeId', orderable: false, searchable: false,
-            "render": function (data, type, row, meta) {
-              return '<a class ="btn btn-info btn-sm" href="/ServerSide/Details/' + row.EmployeeId + '">Details</a>' + ' ' +
-                '<a class ="btn btn-primary btn-sm" href="/ServerSide/Edit/' + row.EmployeeId + '">Edit</a>' + ' ' +
-                '<a class ="btn btn-danger btn-sm" href="/ServerSide/Delete/' + row.EmployeeId + '">Delete</a>';
-            }
+            "render": (data, type, row, meta) => '<a class ="btn btn-info btn-sm" href="/ServerSide/Details/' + row.EmployeeId + '">Details</a>' + ' ' +
+              '<a class ="btn btn-primary btn-sm" href="/ServerSide/Edit/' + row.EmployeeId + '">Edit</a>' + ' ' +
+              '<a class ="btn btn-danger btn-sm" href="/ServerSide/Delete/' + row.EmployeeId + '">Delete</a>'
           }
         ],
-        "initComplete": function () {
+        "initComplete": () => {
           table.buttons().container()
             .appendTo($('#myDataTable_wrapper .col-md-6:eq(0)'));
         },
-        "language": {
-          "emptyTable": "There are no customers at present.",
-          "zeroRecords": "There were no matching customers found."
-        },
+        //"language": {
+        //  "emptyTable": "There are no customers at present.",
+        //  "zeroRecords": "There were no matching customers found."
+        //},
         "searching": true, // <-- this should be set to true
         "ordering": true, // <-- this should be set to true
         "paging": true // <-- this should be set to true

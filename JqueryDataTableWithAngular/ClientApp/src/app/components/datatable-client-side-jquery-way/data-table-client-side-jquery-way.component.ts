@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IEmployee } from '../../models/employee-models';
 import { EmployeeService } from '../../services/employee-service.service';
-declare var jQuery: any;
+declare var $: any;
 
 @Component({
   selector: 'app-data-table-client-side-jquery-way.component',
@@ -23,43 +23,38 @@ export class DataTableClientSideJqueryWayComponent implements OnInit {
     this.employeeService.getEmployeeList().subscribe((employeeData) => {
 
       this.employees = employeeData;
-        setTimeout(function () {
-          jQuery(function () {
-
-            // Setup - add a text input to each header cell
-            jQuery('#dataTable thead tr:eq(0) th:not(:last,:first)').each(function () {
-              var title = jQuery(this).text();
-              jQuery(this).html('<input type="text" placeholder="Search ' + title + '" />');
-            });
-
-            var table = jQuery('#dataTable').DataTable({
-              "scrollX": true,
-              "lengthMenu": [[4, 8, 10, 15], [4, 8, 10, 15]],
-              "fixedColumns": {
-                rightColumns: 1
-              }
-            });
-
-            // Individual Column Searching In case of Some Fixed Column
-            jQuery(table.table().container()).on('keyup', 'thead input', function () {
-              table.column(jQuery(this).parent().index() + ':visible')
-                .search(this.value)
-                .draw();
-            });
+        
+        $(() => {
+          // Setup - add a text input to each header cell
+          $('#dataTable thead tr:eq(0) th:not(:last,:first)').each(function () {
+            var title = $(this).text();
+            $(this).html('<input type="text" placeholder="Search ' + title + '" />');
           });
-        }, 10);
+
+          var table = $('#dataTable').DataTable({
+            "scrollX": true,
+            order: [1,'asc'],
+            "fixedColumns": {
+              rightColumns: 1
+            },
+            "columnDefs": [
+              { "orderable": false, "targets": 0 }
+            ]
+          });
+
+          // Individual Column Searching In case of Some Fixed Column
+          $(table.table().container()).on('keyup', 'thead input', function () {
+            table.column($(this).parent().index() + ':visible')
+              .search(this.value)
+              .draw();
+          });
+        });
+        
 
     }, (error) => {
       console.log(error);
       this.statusMessage = "Problem with the service.. Please try again after some time!";
     });
-  }
-
-
-
-
-  trackByEmployeeCode(index: number, employee: any): string {
-    return employee.code;
   }
 
 }

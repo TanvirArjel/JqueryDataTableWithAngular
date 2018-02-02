@@ -26,14 +26,14 @@ namespace JqueryDataTableWithAngular.Controllers
 
         // GET: api/Employee
         [HttpGet]
-        public IEnumerable<Employee> GetEmployees()
+        public IEnumerable<Employee> GetEmployeeList()
         {
             List<Employee> employees = _context.Employees.ToList();
             return employees;
         }
 
         [HttpPost]
-        public async Task<IActionResult> GetEmployeeList([FromBody] DataTableParams dataTablesParams)
+        public async Task<IActionResult> GetEmployeeListForDataTable([FromBody] DataTableParams dataTablesParams)
         {
             int draw = dataTablesParams.Draw;
             int start = dataTablesParams.Start;
@@ -44,11 +44,11 @@ namespace JqueryDataTableWithAngular.Controllers
             string sortColumnDir = dataTablesParams.Order[0].Dir;
 
             //Individual Column Search value
-            string employeeId = dataTablesParams.Columns[1].Search.Value;
-            string employeeName = dataTablesParams.Columns[2].Search.Value;
-            string gender = dataTablesParams.Columns[3].Search.Value;
-            string annualSalary = dataTablesParams.Columns[4].Search.Value;
-            string dateOfBirth = dataTablesParams.Columns[5].Search.Value;
+            string employeeId = dataTablesParams.Columns[0].Search.Value;
+            string employeeName = dataTablesParams.Columns[1].Search.Value;
+            string gender = dataTablesParams.Columns[2].Search.Value;
+            string annualSalary = dataTablesParams.Columns[3].Search.Value;
+            string dateOfBirth = dataTablesParams.Columns[4].Search.Value;
 
 
             IQueryable<Employee> employeesAsQueryable = _context.Employees.AsQueryable();

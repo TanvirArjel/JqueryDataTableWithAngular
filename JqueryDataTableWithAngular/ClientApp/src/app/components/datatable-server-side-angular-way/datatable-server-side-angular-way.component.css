@@ -8,6 +8,6 @@
 /*
    src/styles.css (i.e. your global style)
 */
-.dataTables_empty {
-  display: none;
+#myDataTable_wrapper.dataTables_empty {
+  display: none !important;
 }

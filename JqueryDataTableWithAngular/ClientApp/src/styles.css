@@ -3,14 +3,14 @@
 /*
    server-side-angular-way.component.css
 */
-.no-data-available {
+/*.no-data-available {
   text-align: center;
-}
+}*/
 
 /*
    src/styles.css (i.e. your global style)
 */
-.dataTables_empty {
+#dataTableAngularWay_wrapper .dataTables_empty {
   display: none;
 }
 

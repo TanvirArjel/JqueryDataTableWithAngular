@@ -19,7 +19,7 @@ export class DatatableClientSideAngularWayComponent implements OnInit {
   @ViewChild(DataTableDirective)
   datatableElement: DataTableDirective;
 
-  dtOptions: DataTables.Settings = {};
+  dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject();
 
   constructor(private employeeService: EmployeeService) {
@@ -31,6 +31,42 @@ export class DatatableClientSideAngularWayComponent implements OnInit {
     this.dtOptions = {
       pagingType: 'full_numbers',
       scrollX: true,
+      dom: 'Bfrtip',
+      "columnDefs": [
+        { "orderable": false, "targets": 0 }
+      ],
+      buttons: [
+        {
+          extend: 'pageLength'
+
+        },
+        {
+          extend: 'excel',
+          "text": 'Export to Excel',
+          "className": 'btn btn-success',
+          exportOptions: {
+            columns: 'th:not(:last-child)'
+          }
+        },
+        {
+          extend: 'copy',
+          "className": 'btn btn-info',
+          exportOptions: {
+            columns: ':visible'
+          }
+        },
+
+        {
+          extend: 'print',
+          "className": 'btn btn-primary',
+          exportOptions: {
+            columns: 'th:not(:last-child)'
+          }
+        },
+
+        'colvis'
+      ],
+      
       pageLength: 4,
       lengthMenu: [[4, 8, 10, 15], [4, 8, 10, 15]],
     }

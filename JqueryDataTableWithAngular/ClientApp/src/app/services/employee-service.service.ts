@@ -14,7 +14,11 @@ export class EmployeeService {
   private baseUrl: string = "http://localhost:22513/api/Employee/";
 
   getEmployeeList(): Observable<IEmployee[]> {
-    return this.http.get<IEmployee[]>(this.baseUrl +'GetEmployees').catch(this.handleError);
+    return this.http.get<IEmployee[]>(this.baseUrl +'GetEmployeeList').catch(this.handleError);
+  }
+
+  getEmployeeListForDataTable(): Observable<IEmployee[]> {
+    return this.http.get<IEmployee[]>(this.baseUrl + 'GetEmployeeListForDataTable').catch(this.handleError);
   }
 
 

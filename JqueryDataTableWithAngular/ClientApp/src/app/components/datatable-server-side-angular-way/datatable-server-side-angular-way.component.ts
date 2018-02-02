@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Employee } from '../../models/employee-models';
 import { DataTableDirective } from 'angular-datatables';
@@ -14,7 +14,8 @@ class DataTablesResponse {
 @Component({
   selector: 'app-datatable-server-side-angular-way.component',
   templateUrl: './datatable-server-side-angular-way.component.html',
-  styleUrls: ['./datatable-server-side-angular-way.component.css']
+  styleUrls: ['./datatable-server-side-angular-way.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DatatableServerSideAngularWayComponent implements OnInit {
   @ViewChild(DataTableDirective)
@@ -22,7 +23,7 @@ export class DatatableServerSideAngularWayComponent implements OnInit {
 
   dtOptions: any = {};
   employeeList: Employee[];
-  siteUrl: string = 'http://localhost:22513/api/Employee/GetEmployeeList';
+  siteUrl: string = 'http://localhost:22513/api/Employee/GetEmployeeListForDataTable';
 
   constructor(private http: HttpClient) { }
 
@@ -32,6 +33,7 @@ export class DatatableServerSideAngularWayComponent implements OnInit {
       serverSide: true,
      //"scrollX": true,
       "order": [[1, 'asc']],
+      
       //processing: true,
       ajax: (dataTablesParameters: any, callback) => {
         //console.log(dataTablesParameters);
@@ -46,13 +48,13 @@ export class DatatableServerSideAngularWayComponent implements OnInit {
         });
       },
       columns: [
-        { data: 'employeeId', name: 'employeeId', orderable: false, searchable: false },
+        //{ data: 'employeeId', name: 'employeeId', orderable: false, searchable: false },
         { data: 'employeeId', name: 'employeeId' },
         { data: 'employeeName', name: 'employeeName' },
         { data: 'gender', name: 'gender' },
         { data: 'annualSalary', name: 'annualSalary' },
         { data: 'dateOfBirth', name: 'dateOfBirth' },
-        { data: 'employeeId', name: 'employeeId', orderable: false, searchable: false }
+        //{ data: 'employeeId', name: 'employeeId', orderable: false, searchable: false }
       ]
     };
   }
@@ -74,6 +76,7 @@ export class DatatableServerSideAngularWayComponent implements OnInit {
                 .draw();
           });
         });
+
       });
 
     }, 1000);
